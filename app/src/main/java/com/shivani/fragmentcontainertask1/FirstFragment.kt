@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import android.content.Context
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -54,30 +55,42 @@ class FirstFragment  : Fragment(), ActivityClickInterface {
             mainActivity?.changeText("Changed from Fragment")
         }
     }
+    override fun onAttach(context:Context) {
+        super.onAttach(context)
+        Toast.makeText(context, "onAttach", Toast.LENGTH_SHORT).show()
+    }
     override fun onStart() {
         super.onStart()
-        Toast.makeText(mainActivity, "on Start", Toast.LENGTH_LONG).show()
+        Toast.makeText(mainActivity, "on Start", Toast.LENGTH_SHORT).show()
 
     }
 
     override fun onResume() {
         super.onResume()
-        Toast.makeText(mainActivity, "on Resume", Toast.LENGTH_LONG).show()
+        Toast.makeText(mainActivity, "on Resume", Toast.LENGTH_SHORT).show()
         // mainActivity.a = 10
     }
     override fun onPause() {
         super.onPause()
-        Toast.makeText(mainActivity, "on Pause", Toast.LENGTH_LONG).show()
+        Toast.makeText(mainActivity, "on Pause", Toast.LENGTH_SHORT).show()
     }
     override fun onStop() {
         super.onStop()
-        Toast.makeText(mainActivity, "on Stop", Toast.LENGTH_LONG).show()
+        Toast.makeText(mainActivity, "on Stop", Toast.LENGTH_SHORT).show()
     }
-    override fun onDestroy() {
-        super.onDestroy()
-        Toast.makeText(mainActivity, "on Destroy", Toast.LENGTH_LONG).show()
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Toast.makeText(mainActivity, "on DestroyView", Toast.LENGTH_SHORT).show()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        Toast.makeText(mainActivity, "on Destroy", Toast.LENGTH_SHORT).show()
+    }
+    override fun onDetach() {
+        super.onDetach()
+        Toast.makeText(mainActivity, "onDetach ", Toast.LENGTH_SHORT).show()
+    }
     companion object {
         /**
          * Use this factory method to create a new instance of
